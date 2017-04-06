@@ -1,0 +1,19 @@
+input#btn-delete {
+    background: #ccc url(Pictures/delete.png) no-repeat top left;
+    padding-left: 23px;
+    height: 24px;
+}
+h1{
+	text-align:center;
+	color:white;
+	font-family:sans-serif;
+	
+	text-decoration: underline;
+}
+body{
+	background: #292931;
+}
+.delete{
+	color:white;
+	font-family:sans-serif;
+}

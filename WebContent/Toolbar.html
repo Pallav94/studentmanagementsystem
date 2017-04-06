@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Toolbar</title>
+<style>
+	ul{
+		list-style: none;
+	}
+	ul >li > a{
+		text-decoration: none;
+		color:white;
+		font-weight: bold;
+	}
+	ul >li >form > a{
+		text-decoration: none;
+		color:white;
+		font-weight: bold;
+	}
+	ul{
+		display: flex;
+		justify-content:space-between;
+		
+	}
+	ul > li{
+		flex:1;
+		
+	}
+	body{
+		background: #4c4c5b;
+	}
+	.list{
+		color:yellow;
+		font-family:sans-serif;	
+	}
+</style>
+</head>
+<body style="overflow:hidden">
+	<ul class="list">
+		<li>
+			<a href="Main.html" target="top">Insert Student Details</a>
+		</li>
+		<li>
+			<form action="ITresult" method="post"><a href="ITresult" target="left">Load All Student</a></form>
+		</li>
+		<li>
+			<a href="Find.html" target="top">Find Student</a>
+		</li>
+		<li>
+			<a href="Edit.html" target="top">Edit Student Details</a>
+		</li>
+		<li>
+			<a href="Delete.html" target="top">Delete Student Details</a>
+		</li>
+		<li>
+			<a href="About us.html" target="top">About Us</a>
+		</li>
+	</ul>
+</body>
+</html>
