@@ -4,51 +4,100 @@
 <meta charset="UTF-8">
 <title>Main</title>
     <link rel="stylesheet" href="Main.css"/>
+<script type="text/javascript">
+function insert(){	
+ 		var name= document.getElementById("name").value;
+		var rollno= document.getElementById("rollno").value;
+		var firstsem= document.getElementById("1sem").value;
+		var secsem= document.getElementById("2sem").value;
+		var thirdsem= document.getElementById("3sem").value;
+		var fourthsem= document.getElementById("4sem").value;
+		var fifthsem= document.getElementById("5sem").value;
+		re1=/^[0-9]+$/;
+		re2=/^[a-zA-Z ]*$/;
+//name validation
+		if(name==""){
+			alert("Invalid Detail");
+			return false;
+		}
+		else if(!re2.test(name)){
+			alert("Enter Alphabets Only");
+			return false;
+		}
+//Roll no validation
+		
+			if(rollno==""){
+				alert("Invalid Detail");
+				return false;
+			}
+			else if(!re1.test(rollno)){
+				alert("Enter Numbers Only");
+				return false;
+			}
+			else if(rollno.length!=11){
+				alert("Enter 11 Digit Enrollment Number");
+				return false;
+			}	
+// marks validation
+			if( (firstsem=="") || (secsem=="") || (thirdsem=="") || (fourthsem=="") || (fifthsem=="") ){
+	  			alert("Invalid Details");
+	  			return false;
+	  		}
+	  		else if(!re1.test(firstsem) || (!re1.test(secsem)) || (!re1.test(thirdsem)) || (!re1.test(fourthsem)) || (!re1.test(fifthsem))){
+	  			alert("Enter Only Numbers");
+	  			return false;
+	  		}
+	  		else if((firstsem.length>5) || (secsem.length>5) || (thirdsem.length>5) || (fourthsem.length>5) || (fifthsem.length>5)){
+	  			alert("Enter Max 5 digits");
+	  			return false;
+	  		}
+}
+</script>
 </head>
 <body>
 <h1>INSERT DETAILS OF STUDENT</h1>
-<form action="ITdatabase" method="post">
+<form name="myform" onsubmit="return insert()" action="ITdatabase" method="post">
 <table>
   <tr>
   <td><label class="label">NAME:</label></td>
-  <td><input type="text" name="name"></td>
+  <td><input type="text" name="name" id="name" class="curve"></td>
   </tr>
   
   <tr>
   <td><label class="label">ENROLLMENT NO:</label></td>
-  <td><input type="text" name="rollno"></td>
+  <td><input type="text" name="rollno" id="rollno" class="curve"></td>
   </tr>
   
   <tr>
   <td><label class="label">BRANCH:</label></td>
-  <td><select class="input" name="branch">
+  <td><select class="input" name="branch" id="branch" class="curve">
   <option>CS</option>
   <option>IT</option>
   </select></td>
   </tr>
   
   <tr><td><label class="label">1st SEM:</label></td>
-  <td><input type="text" name="1sem" size="10"></td>
+  <td><input type="text" name="1sem" size="10" id="1sem" class="curve"></td>
   </tr>
   
   <tr>
   <td><label class="label"><b>2nd SEM:</b></label></td>
-  <td><input type="text" name="2sem" size="10"></td>
+  <td><input type="text" name="2sem" size="10" id="2sem" class="curve"></td>
   </tr>
   
   <tr>
   <td><label class="label">3rd SEM:</label></td>
-  <td><input type="text" name="3sem" size="10"></td></tr>
+  <td><input type="text" name="3sem" size="10" id="3sem" class="curve"></td></tr>
   
   <tr><td><label class="label">4th SEM:</label></td>
-  <td><input type="text" name="4sem" size="10"></td>
+  <td><input type="text" name="4sem" size="10" id="4sem" class="curve"></td>
   </tr>
   
   <tr><td><label class="label">5th SEM:</label></td>
-  <td><input type="text" name="5sem" size="10"></td>
+  <td><input type="text" name="5sem" size="10" id="5sem" class="curve"></td>
   </tr>
  
-   <tr><td><input type="submit" value="SUBMIT" id="btn-submit" class="input"></td></tr>
+   <tr><td><input type="submit" value="SUBMIT" id="btn-submit" class="input" class="curve"></td></tr>
 </table>
 </form>
 

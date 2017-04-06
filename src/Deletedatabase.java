@@ -60,6 +60,11 @@ public class Deletedatabase extends HttpServlet {
 		        rd.include(request, response);  
 		                      
 		}
+		else{
+			 RequestDispatcher rd=request.getRequestDispatcher("/Delete.html");  
+		        rd.include(request, response);  
+		        out.print("<br><h3 style=font-family:sans-serif;color:white;>NOT FOUND !!!</h3>");
+		}
 		              
 		
 		              

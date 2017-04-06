@@ -11,11 +11,13 @@
 		text-decoration: none;
 		color:white;
 		font-weight: bold;
+		font-size:14px;
 	}
 	ul >li >form > a{
 		text-decoration: none;
 		color:white;
 		font-weight: bold;
+		font-size:14px;
 	}
 	ul{
 		display: flex;
@@ -33,27 +35,64 @@
 		color:yellow;
 		font-family:sans-serif;	
 	}
+	span{
+		font-size:14px;
+		color:white;
+		font-weight: bold;
+	}
+	label{
+		font-size:14px;
+		color:white;
+		font-weight: bold;
+	}
 </style>
+<script>
+	window.onload=function(){getTime();}  
+	function getTime(){  
+	var today=new Date();  
+	var h=today.getHours();  
+	var m=today.getMinutes();  
+	var s=today.getSeconds();  
+	// add a zero in front of numbers<10  
+	m=checkTime(m);  
+	s=checkTime(s);  
+	document.getElementById("date").innerHTML=h+":"+m+":"+s;  
+	setTimeout(function(){getTime()},1000);  
+	}  
+	//setInterval("getTime()",1000);//another way  
+	function checkTime(i){  
+	if (i<10){  
+	  i="0" + i;  
+	 }  
+	return i;  
+	}  
+</script>
 </head>
 <body style="overflow:hidden">
 	<ul class="list">
 		<li>
-			<a href="Main.html" target="top">Insert Student Details</a>
+			<a href="Main.html" target="top">Insert Student</a>
 		</li>
 		<li>
-			<form action="ITresult" method="post"><a href="ITresult" target="left">Load All Student</a></form>
+			<form action="ITresult" method="post"><a href="ITresult" target="left">Load All</a></form>
 		</li>
 		<li>
 			<a href="Find.html" target="top">Find Student</a>
 		</li>
 		<li>
-			<a href="Edit.html" target="top">Edit Student Details</a>
+			<a href="Edit.html" target="top">Edit Details</a>
 		</li>
 		<li>
-			<a href="Delete.html" target="top">Delete Student Details</a>
+			<a href="Delete.html" target="top">Delete Student</a>
+		</li>
+		<li>
+			<a href="LogOut" target="_top">Log Out</a>
 		</li>
 		<li>
 			<a href="About us.html" target="top">About Us</a>
+		</li>
+		<li>
+			<label>Current Time:</label><span id="date"></span>
 		</li>
 	</ul>
 </body>

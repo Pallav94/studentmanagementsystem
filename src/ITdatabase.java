@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ITdatabase")
 public class ITdatabase extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ITdatabase() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ITdatabase() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,47 +41,42 @@ public class ITdatabase extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
-		          
-		String name=request.getParameter("name"); 
-		String rollno=request.getParameter("rollno"); 
-		String branch=request.getParameter("branch");  
-		String firstsem=request.getParameter("1sem");  
-		String secondsem=request.getParameter("2sem");
-		String thirdsem=request.getParameter("3sem");
-		String fourthsem=request.getParameter("4sem");
-		String fifthsem=request.getParameter("5sem");
-	
-		          
+
+		String name=request.getParameter("name").trim(); 
+		String rollno=request.getParameter("rollno").trim(); 
+		String branch=request.getParameter("branch").trim();  
+		String firstsem=request.getParameter("1sem").trim();  
+		String secondsem=request.getParameter("2sem").trim();
+		String thirdsem=request.getParameter("3sem").trim();
+		String fourthsem=request.getParameter("4sem").trim();
+		String fifthsem=request.getParameter("5sem").trim();
+
+
 		try{ 
-			if(name.equals(" ")){
-				name="";
-			}
+			
+				Class.forName("com.mysql.jdbc.Driver");  
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/regform","root","root");
 
-		Class.forName("com.mysql.jdbc.Driver");  
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/regform","root","root");
-		  
-		PreparedStatement ps=con.prepareStatement(  
-		"insert into studentDatabase values(?,?,?,?,?,?,?,?)");  
+				PreparedStatement ps=con.prepareStatement(  
+						"insert into studentDatabase values(?,?,?,?,?,?,?,?)");  
 
-		ps.setString(1,name); 
-		ps.setString(2,rollno);
-		ps.setString(3,branch);  
-		ps.setString(4,firstsem);  
-		ps.setString(5,secondsem); 
-		ps.setString(6,thirdsem);  
-		ps.setString(7,fourthsem);  
-		ps.setString(8,fifthsem); 
-        
-		int i=ps.executeUpdate();  
-		if(i>0){
-			 RequestDispatcher rd=request.getRequestDispatcher("/Main.html");  
-		        rd.include(request, response);  
-		                      
-		}  
-		      
-		          
+				ps.setString(1,name); 
+				ps.setString(2,rollno);
+				ps.setString(3,branch);  
+				ps.setString(4,firstsem);  
+				ps.setString(5,secondsem); 
+				ps.setString(6,thirdsem);  
+				ps.setString(7,fourthsem);  
+				ps.setString(8,fifthsem); 
+
+				ps.executeUpdate();  
+			
+			RequestDispatcher rd=request.getRequestDispatcher("/Main.html");  
+			rd.include(request, response);  
+
+
 		}catch (Exception e2) {System.out.println(e2);}  
-		          
+
 		out.close();  
-		}  
+	}  
 }

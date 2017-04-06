@@ -3,7 +3,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class loginservlet
+ * Servlet implementation class LogOut
  */
-@WebServlet("/loginservlet")
-public class loginservlet extends HttpServlet {
+@WebServlet("/LogOut")
+public class LogOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginservlet() {
+    public LogOut() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,33 +32,25 @@ public class loginservlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-        
           
-        String name=request.getParameter("userName");  
-        String password=request.getParameter("userPass");  
+       
           
-        if(password.equals("bvcoe2014")&& name.equals("Admin")){  
-       // out.print("Welcome, "+name);  
         HttpSession session=request.getSession();  
-        session.setAttribute("name",name);  
-        request.getRequestDispatcher("FrameSet.html").include(request, response);  
-        }  
-        else{  
-        	out.print("<br><h2 style=font-family:sans-serif;color:white;text-align:center;>Wrong Username and Password !!!</h2>"); 
-        	request.getRequestDispatcher("LoginPage.html").include(request, response);
-             
-        }  
+        session.invalidate();  
+        request.getRequestDispatcher("LoginPage.html").include(request, response);    
+        out.print("<br><h1 style=font-family:sans-serif;color:white;text-align:center;>You Are Successfully Logged Out !!!</h1>");   
+          
         out.close();  
-    }  
-		    
+ 
+		
+	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		  
-		  
-		
-
+		doGet(request, response);
 	}
+
 }

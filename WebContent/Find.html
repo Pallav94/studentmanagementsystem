@@ -4,12 +4,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
      <link rel="stylesheet" href="find.css"/>
+     <script type="text/javascript">
+	function find(){
+		var x=document.myform.rollno.value;
+		re1=/^[0-9]+$/;
+		if(x==""){
+			alert("Invalid Detail");
+		}
+		else if(!re1.test(x)){
+			alert("Enter Numbers Only");
+		}
+		else if(x.length!=11){
+			alert("Enter 11 Digit Enrollment Number");
+		}
+		else{
+			return true;
+		}
+		return false;
+	}
+</script>
 </head>
 <body>
-<h1>ENTER ENROLLMENT NO. TO BE FOUND</h1>
-	<form action="Finddatabase" method="post">
-	<label class="find"><b>ENTER ENROLLMENT NO:</b></label><input type="text" name="rollno"><br><br>
+
+	<h1>ENTER ENROLLMENT NO. TO BE FOUND</h1>
+	<form name="myform" action="Finddatabase" onsubmit="return find()" method="post">
+	<label class="find"><b>ENTER ENROLLMENT NO:</b></label><input type="text" name="rollno" class="curve"><br><br>
 	<input type="submit" value="Submit" id="btn-find" formtarget="left">
-</form>
+	</form>
 </body>
 </html>
