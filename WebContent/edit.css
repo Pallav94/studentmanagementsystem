@@ -3,11 +3,12 @@ input#btn-edit {
     background: #ccc url(Pictures/edit.png) no-repeat top left;
     padding-left: 23px;
     height: 24px;
+    font-family: 'Ubuntu', sans-serif;
 }
 h1{
 	text-align:center;
 	color:white;
-	font-family:sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	
 	text-decoration: underline;
 }
@@ -16,7 +17,7 @@ body{
 }
 .edit{
 	color:white;
-	font-family:sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 .curve{
 	 -moz-border-radius:10px; /* Firefox */

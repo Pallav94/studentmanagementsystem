@@ -33,19 +33,20 @@ public class loginservlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-        
+      
           
         String name=request.getParameter("userName");  
         String password=request.getParameter("userPass");  
           
         if(password.equals("bvcoe2014")&& name.equals("Admin")){  
-       // out.print("Welcome, "+name);  
+       //out.print("Welcome, "+name);  
+        request.getRequestDispatcher("FrameSet.html").include(request, response); 
         HttpSession session=request.getSession();  
         session.setAttribute("name",name);  
-        request.getRequestDispatcher("FrameSet.html").include(request, response);  
+         
         }  
         else{  
-        	out.print("<br><h2 style=font-family:sans-serif;color:white;text-align:center;>Wrong Username and Password !!!</h2>"); 
+        	out.print("<br><h1 style=font-family:sans-serif;color:white;text-align:center;>Wrong Username and Password !!!</h1>"); 
         	request.getRequestDispatcher("LoginPage.html").include(request, response);
              
         }  

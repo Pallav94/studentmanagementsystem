@@ -42,14 +42,14 @@ public class ITdatabase extends HttpServlet {
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
 
-		String name=request.getParameter("name").trim(); 
-		String rollno=request.getParameter("rollno").trim(); 
-		String branch=request.getParameter("branch").trim();  
-		String firstsem=request.getParameter("1sem").trim();  
-		String secondsem=request.getParameter("2sem").trim();
-		String thirdsem=request.getParameter("3sem").trim();
-		String fourthsem=request.getParameter("4sem").trim();
-		String fifthsem=request.getParameter("5sem").trim();
+		String name=request.getParameter("name");
+		String rollno=request.getParameter("rollno"); 
+		String branch=request.getParameter("branch");  
+		String firstsem=request.getParameter("1sem");  
+		String secondsem=request.getParameter("2sem");
+		String thirdsem=request.getParameter("3sem");
+		String fourthsem=request.getParameter("4sem");
+		String fifthsem=request.getParameter("5sem");
 
 
 		try{ 
@@ -69,13 +69,19 @@ public class ITdatabase extends HttpServlet {
 				ps.setString(7,fourthsem);  
 				ps.setString(8,fifthsem); 
 
-				ps.executeUpdate();  
+				int i=ps.executeUpdate();  
+			if(i>0){
+				RequestDispatcher rd=request.getRequestDispatcher("/Main.html");  
+				rd.include(request, response);  
+			}
 			
-			RequestDispatcher rd=request.getRequestDispatcher("/Main.html");  
-			rd.include(request, response);  
 
-
-		}catch (Exception e2) {System.out.println(e2);}  
+		}catch (Exception e2) {
+			
+				RequestDispatcher rd=request.getRequestDispatcher("/Main.html");  
+				rd.include(request, response);  
+				out.print("<h3 style=font-family:sans-serif;color:white;>ENROLLMENT NO. ALREADY EXISTS !!!</h3>");
+			}; 
 
 		out.close();  
 	}  

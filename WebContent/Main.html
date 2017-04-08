@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 <title>Main</title>
     <link rel="stylesheet" href="Main.css"/>
 <script type="text/javascript">
@@ -44,13 +45,14 @@ function insert(){
 	  			return false;
 	  		}
 	  		else if(!re1.test(firstsem) || (!re1.test(secsem)) || (!re1.test(thirdsem)) || (!re1.test(fourthsem)) || (!re1.test(fifthsem))){
-	  			alert("Enter Only Numbers");
+	  			alert("Enter Only Numbers(Positive)");
 	  			return false;
 	  		}
 	  		else if((firstsem.length>5) || (secsem.length>5) || (thirdsem.length>5) || (fourthsem.length>5) || (fifthsem.length>5)){
 	  			alert("Enter Max 5 digits");
 	  			return false;
 	  		}
+	  		
 }
 </script>
 </head>
@@ -97,7 +99,7 @@ function insert(){
   <td><input type="text" name="5sem" size="10" id="5sem" class="curve"></td>
   </tr>
  
-   <tr><td><input type="submit" value="SUBMIT" id="btn-submit" class="input" class="curve"></td></tr>
+   <tr><td><input type="submit" value="Insert" id="btn-submit" class="input" class="curve"></td></tr>
 </table>
 </form>
 

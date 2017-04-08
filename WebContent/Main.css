@@ -2,11 +2,12 @@ input#btn-submit {
     background: #ccc url(Pictures/insert.png) no-repeat top left;
     padding-left: 25px;
     height: 25px;
+    font-family: 'Ubuntu', sans-serif;
 }
 h1{
 	text-align:center;
 	color:white;
-	font-family:sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	
 	text-decoration: underline;
 }
@@ -15,7 +16,7 @@ body{
 }
 .label{
 	color:white;
-	font-family:sans-serif;	
+	font-family: 'Ubuntu', sans-serif;
 	flex: 1;
 	font-weight: bold;
 }

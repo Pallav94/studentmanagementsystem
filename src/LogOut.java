@@ -33,11 +33,11 @@ public class LogOut extends HttpServlet {
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
           
-       
+        request.getRequestDispatcher("LoginPage.html").include(request, response);  
           
         HttpSession session=request.getSession();  
         session.invalidate();  
-        request.getRequestDispatcher("LoginPage.html").include(request, response);    
+          
         out.print("<br><h1 style=font-family:sans-serif;color:white;text-align:center;>You Are Successfully Logged Out !!!</h1>");   
           
         out.close();  
